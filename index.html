@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+	<body>
+	</body>
 	<script>
 		function browserRedirect() {
             var sUserAgent = navigator.userAgent.toLowerCase();
@@ -15,11 +17,10 @@
             var bIsAndroid = sUserAgent.match(/android/i) == "android";
             var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
             var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-            document.writeln("您的浏览设备为：");
             if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-                window.location.href='./mobileTest/index.html';
+                window.location.href='./mobileTest';
             } else {
-                window.location.href='./test/index.html';
+                window.location.href='./test';
             }
         }
 
