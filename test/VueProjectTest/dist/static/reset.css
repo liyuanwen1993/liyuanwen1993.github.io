@@ -1,18 +1,5 @@
-<template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'app'
-}
-</script>
-
-<style>
 body{
-  font-family: "HanHei SC","PingFang SC","Microsoft YaHei","PingFangSC-Regular";
+	font-family: "HanHei SC","PingFang SC","Microsoft YaHei","PingFangSC-Regular";
 }
 
 input[type=button]{
@@ -39,22 +26,21 @@ a, input{
     font-size: 14px;
 }
 body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,li, dl, dt, dd, form, a, fieldset, input, th, td{
-  margin: 0; padding: 0; border: 0; outline: none;
-  display: block;
-  }
+	margin: 0; padding: 0; border: 0; outline: none;
+	display: block;
+	}
 ul, ol{
-  list-style: none;
-  }
+	list-style: none;
+	}
 a{
-  text-decoration:none;
-  }
+	text-decoration:none;
+	}
 html{
-  font-family: "Microsoft YaHei",Arial;
-  }
+	font-family: "Microsoft YaHei",Arial;
+	}
 /*::-webkit-scrollbar{
-  width:0px;
-  }*/
-  i{
-    font-style: normal;
-  }
-</style>
+	width:0px;
+	}*/
+	i{
+		font-style: normal;
+	}
