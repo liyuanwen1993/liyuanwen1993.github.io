@@ -6,37 +6,28 @@ const webpackBaseConfig = require('./webpack.base.config.js');
 const fs = require('fs');
 
 fs.open('./src/config/env.js', 'w', function(err, fd) {
-    const buf = 'export default "production";';
+    const buf = 'export default "development";';
     fs.write(fd, buf, 0, buf.length, 0, function(err, written, buffer) {});
 });
 
 module.exports = merge(webpackBaseConfig, {
+    devtool: '#source-map',
     output: {
-        publicPath: './dist/',
-        filename: '[name].[hash].js',
-        chunkFilename: '[name].[hash].chunk.js'
+        publicPath: '/dist/',
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js'
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '[name].[hash].css',
+            filename: '[name].css',
             allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
-            filename: 'vendors.[hash].js'
-        }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
+            filename: 'vendors.js'
         }),
         new HtmlWebpackPlugin({
-            filename: '../index_pro.html',
+            filename: '../index_dev.html',
             template: './src/template/index.ejs',
             inject: false
         })
