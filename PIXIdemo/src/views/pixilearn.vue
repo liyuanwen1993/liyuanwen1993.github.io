@@ -64,18 +64,19 @@ export default {
 			this.ming = new PIXI.Sprite(
 				PIXI.loader.resources.ming.texture
 			);
-			this.app.stage.addChild(this.ming);   //将精灵加入到舞台中
+			
 
-			this.change();
+			this.addMing();
 			//this.app.ticker.add(delta => this.gameLoop(delta));
-			this.ming.vx = 5;
-			this.ming.vy = 5;
 			this.gameLoop();
         },
-        change(){
+        addMing(){
+        	this.app.stage.addChild(this.ming);   //将精灵加入到舞台中
         	this.ming.position.set(100,100);
         	this.ming.height=100;
         	this.ming.width = 100;
+        	this.ming.vx = 5;
+			this.ming.vy = 5;
         	/*this.ming.scale.x = 0.2;  //按照原图比例缩放
 			this.ming.scale.y = 0.2;*/
 			this.ming.rotation = 0.5; //旋转角度
@@ -96,8 +97,7 @@ export default {
         		this.ming.vy = 0 - this.ming.vy;
         	}else if(this.ming.y > window.innerHeight){
         		this.ming.vy = 0 - this.ming.vy;
-        	}
-        	
+        	}	
         }
     }
 }
