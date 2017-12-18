@@ -67,7 +67,10 @@ export default {
 			this.app.stage.addChild(this.ming);   //将精灵加入到舞台中
 
 			this.change();
-			this.app.ticker.add(delta => this.gameLoop(delta));
+			//this.app.ticker.add(delta => this.gameLoop(delta));
+			this.ming.vx = 5;
+			this.ming.vy = 5;
+			this.gameLoop();
         },
         change(){
         	this.ming.position.set(100,100);
@@ -75,14 +78,26 @@ export default {
         	this.ming.width = 100;
         	/*this.ming.scale.x = 0.2;  //按照原图比例缩放
 			this.ming.scale.y = 0.2;*/
-
 			this.ming.rotation = 0.5; //旋转角度
 
 			this.ming.anchor.set(0.5,0.5);   //旋转圆心
         },
         gameLoop(){
+        	requestAnimationFrame(this.gameLoop)
         	this.ming.rotation +=0.01;
-        	this.ming.x+=1;
+        	this.ming.x += this.ming.vx;
+        	this.ming.y += this.ming.vy;
+        	if(this.ming.x<0){
+        		this.ming.vx = 0 - this.ming.vx;
+        	}else if(this.ming.x > window.innerWidth){
+        		this.ming.vx = 0 - this.ming.vx;
+        	}
+        	if(this.ming.y<0){
+        		this.ming.vy = 0 - this.ming.vy;
+        	}else if(this.ming.y > window.innerHeight){
+        		this.ming.vy = 0 - this.ming.vy;
+        	}
+        	
         }
     }
 }
